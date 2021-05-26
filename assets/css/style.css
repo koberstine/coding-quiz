@@ -6,3 +6,9 @@ p {
     max-width: 50%;
     margin: 0 auto;
 }
+
+section {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
