@@ -3,6 +3,7 @@ var heading = document.getElementById("heading");
 var content = document.getElementById("content");
 var buttonArea = document.getElementById("buttonArea");
 var feedback = document.getElementById("feedback");
+var timerDisplay = document.getElementById("timerDisplay");
 var counter = 0;
 var timer = 180;
 var score = 0;
@@ -224,6 +225,8 @@ function offerQuiz () {
 };
 
 function quizMain () {
+    timerDisplay.innerText = timer;
+    setInterval(decrementTimer, 1000, 1);
     questionPrep();
 
 };
@@ -259,15 +262,40 @@ function checkAnswer(response) {
         score++;
     } else {
         feedback.innerText = "Incorrect";
+        decrementTimer (10);
     }
     questionPrep();
 }
 
 function endQuiz () {
+    clearInterval ();
+    timerDisplay.innerHTML = "";
     buttonArea.innerHTML = "";
     feedback.innerHTML = "";
     heading.innerText = "Your score: " + score;
-    content.innerText = "Would you like to try again?"
+    content.innerHTML = "";
+    var initials = prompt ("Enter your initials");
+//  if (localStorage.getItem('scoreArray')) {
+//      var scoreArray = JSON.parse(window.localStorage.getItem('array name'));
+//      var tempArray = [[initials, score]];
+//      var newArray = scoreArray.concat(tempArray);
+//  } else {
+//      var newArray = [[initials, score]];
+//  }
+//  localStorage.setItem('scoreArray', JSON.stringify(newArray));
+// 
+}
+
+function decrementTimer (amount) {
+    timer = timer - amount;
+    if (timer <= 0) {
+        timer = 0;
+        timerDisplay.innerText = timer;
+        endQuiz ();
+    } else {
+        timerDisplay.innerText = timer;
+        return;
+    }
 }
 
 offerQuiz ();
