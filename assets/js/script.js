@@ -8,6 +8,7 @@ var counter = 0;
 var timer = 0;
 var score = 0;
 var myVar = 0;
+// questions in an array of objects
 var question = [ 
     {
         "questionText" : "This question intentionally left blank",
@@ -17,205 +18,245 @@ var question = [
         ]
     },
     {
-        "questionText" : "This is question 1",
-        "correctAnswer" : 1,
+        "questionText" : "What is the correct syntax to close the <title> element?",
+        "correctAnswer" : 0,
         "answerList" : [
-            "q1 answer 1",
-            "q1 answer 2",
-            "q1 answer 3",
-            "q1 answer 4"
+            "</title>",
+            "<!title>",
+            "<?title>",
+            "<endtitle>"
         ]
     },
     {   
-        "questionText" : "This is question 2",
+        "questionText" : "What is the purpose of the <body> element?",
         "correctAnswer" : 1,
         "answerList" : [
-            "q2 answer 1",
-            "q2 answer 2"
+            "The body element connects to the head element",
+            "This is where all of the webpage's content will go",
+            "The body element will remain an empty placeholder"
         ]
     },
     {
-        "questionText" : "This is question 3",
-        "correctAnswer" : 1,
+        "questionText" : "What is the difference between <h1> and <h2>?",
+        "correctAnswer" : 2,
         "answerList" : [
-            "q3 answer 1",
-            "q3 answer 2",
-            "q3 answer 3",
-            "q3 answer 4"
+            "An <h2> is visually larger",
+            "There is no difference",
+            "An <h1> is the more important heading and is visually larger"
         ]
     },
     {
-        "questionText" : "This is question 4",
+        "questionText" : "How do you add a message to a git commit?",
         "correctAnswer" : 1,
         "answerList" : [
-            "q4 answer 1",
-            "q4 answer 2",
-            "q4 answer 3",
-            "q4 answer 4"
+            "Upload and attach a file to git commit",
+            "Add -m \"message\" at the end of git commit",
+            "Both A & B",
+            "None of the above"
         ]
     },
     {
-        "questionText" : "This is question 5",
-        "correctAnswer" : 1,
+        "questionText" : "What's the first thing you should do before writing a single line of HTML code?",
+        "correctAnswer" : 0,
         "answerList" : [
-            "q5 answer 1",
-            "q5 answer 2",
-            "q5 answer 3",
-            "q5 answer 4"
+            "Sketch out what the webpage should look like",
+            "Write all of your CSS code",
+            "Download the latest version of VS Code",
+            "Publish your webpage on GitHub"
         ]
     },
     {
-        "questionText" : "This is question 6",
-        "correctAnswer" : 1,
+        "questionText" : "On a technical level, what's the difference between a <section> element and a <div>?",
+        "correctAnswer" : 0,
         "answerList" : [
-            "q6 answer 1",
-            "q6 answer 2",
-            "q6 answer 3",
-            "q6 answer 4"
+            "There is no difference",
+            "A <div> element takes up more width on the page",
+            "A <section> element has bold text by default",
+            "A <section> element takes up more height on the page"
         ]
     },
     {
-        "questionText" : "This is question 7",
-        "correctAnswer" : 1,
+        "questionText" : "How do you leave hidden comments in HTML code?",
+        "correctAnswer" : 3,
         "answerList" : [
-            "q7 answer 1",
-            "q7 answer 2",
-            "q7 answer 3",
-            "q7 answer 4"
+            "/* */",
+            "<!-- -->",
+            "{{ }}",
+            "//"
         ]
     },
     {
-        "questionText" : "This is question 8",
-        "correctAnswer" : 1,
+        "questionText" : "How do you create a flexbox?",
+        "correctAnswer" : 2,
         "answerList" : [
-            "q8 answer 1",
-            "q8 answer 2",
-            "q8 answer 3",
-            "q8 answer 4"
+            "display: flex;",
+            "display: flexbox;",
+            "display: box;"
         ]
     },
     {
-        "questionText" : "This is question 9",
-        "correctAnswer" : 1,
+        "questionText" : "By default, in which direction does a flexbox lay out its items?",
+        "correctAnswer" : 0,
         "answerList" : [
-            "q9 answer 1",
-            "q9 answer 2",
-            "q9 answer 3",
-            "q9 answer 4"
+            "A row (horizontal), with all of the child elements laid out side by side.",
+            "A column (vertical), with all of the child elements laid out on top of one another."
         ]
     },
     {
-        "questionText" : "This is question 10",
-        "correctAnswer" : 1,
+        "questionText" : "What do media queries allow us to do?",
+        "correctAnswer" : 2,
         "answerList" : [
-            "q10 answer 1",
-            "q10 answer 2",
-            "q10 answer 3",
-            "q10 answer 4"
+            "Play videos on our page",
+            "Create responsive designs",
+            "Change CSS at different browser widths"
         ]
     },
     {
-        "questionText" : "This is question 11",
-        "correctAnswer" : 1,
+        "questionText" : "Which one of these is NOT a valid media type for media queries?",
+        "correctAnswer" : 3,
         "answerList" : [
-            "q11 answer 1",
-            "q11 answer 2",
-            "q11 answer 3",
-            "q11 answer 4"
+            "all",
+            "screen",
+            "speech",
+            "tablet"
         ]
     },
     {
-        "questionText" : "This is question 12",
-        "correctAnswer" : 1,
+        "questionText" : "The following media query uses the correct syntax: @media screen and (max-width: 768px) and (orientation: portrait) { ... }",
+        "correctAnswer" : 0,
         "answerList" : [
-            "q12 answer 1",
-            "q12 answer 2",
-            "q12 answer 3",
-            "q12 answer 4"
+            "True",
+            "False"
         ]
     },
     {
-        "questionText" : "This is question 13",
-        "correctAnswer" : 1,
+        "questionText" : "Given the declaration box-shadow: 1px 2px 3px blue;, what does each value mean?",
+        "correctAnswer" : 2,
         "answerList" : [
-            "q13 answer 1",
-            "q13 answer 2",
-            "q13 answer 3",
-            "q13 answer 4"
+            "Blur radius, horizontal offset, vertical offset, and color.",
+            "Blur radius, vertical offset, horizontal offset, and color.",
+            "Horizontal offset, vertical offset, blur radius, and color.",
+            "Vertical offset, horizontal offset, blur radius, and color."
         ]
     },
     {
-        "questionText" : "This is question 14",
-        "correctAnswer" : 1,
+        "questionText" : "Which is an example of a vendor prefix?",
+        "correctAnswer" : 0,
         "answerList" : [
-            "q14 answer 1",
-            "q14 answer 2",
-            "q14 answer 3",
-            "q14 answer 4"
+            "-webkit-",
+            "::before",
+            "position: sticky",
+            "#024e76"
         ]
     },
     {
-        "questionText" : "This is question 15",
+        "questionText" : "Which of these values is NOT considered false?",
         "correctAnswer" : 1,
         "answerList" : [
-            "q15 answer 1",
-            "q15 answer 2",
-            "q15 answer 3",
-            "q15 answer 4"
+            "0",
+            "\"0\"",
+            "null",
+            "\"\""
         ]
     },
     {
-        "questionText" : "This is question 16",
+        "questionText" : "Which statement correctly stores data into the Web Storage API?",
         "correctAnswer" : 1,
         "answerList" : [
-            "q16 answer 1",
-            "q16 answer 2",
-            "q16 answer 3",
-            "q16 answer 4"
+            "localStorage.getItem(\"lunch\", \"sandwich\");",
+            "localStorage.setItem(\"lunch\", \"sandwich\");",
+            "getItem.localStorage.(\"lunch\", \"sandwich\");",
+            "setItem.localStorage(\"lunch\", \"sandwich\");"
         ]
     },
     {
-        "questionText" : "This is question 17",
-        "correctAnswer" : 1,
+        "questionText" : "Which of the following is NOT a reason to validate a user's responses?",
+        "correctAnswer" : 2,
         "answerList" : [
-            "q17 answer 1",
-            "q17 answer 2",
-            "q17 answer 3",
-            "q17 answer 4"
+            "Offers the user an opportunity to enter a correct response",
+            "Reduces bogus answers getting stored in the database",
+            "Improves the user experience",
+            "Increases the overall quality of the user data"
         ]
     },
     {
-        "questionText" : "This is question 18",
-        "correctAnswer" : 1,
+        "questionText" : "Which statement does NOT guarantee that number will be non-negative?",
+        "correctAnswer" : 3,
         "answerList" : [
-            "q18 answer 1",
-            "q18 answer 2",
-            "q18 answer 3",
-            "q18 answer 4"
+            "number = Math.max(1, highScore);",
+            "if (number < 0) { number = 1; }",
+            "number = Math.random();",
+            "number = Math.min(10, highScore);"
         ]
     },
     {
-        "questionText" : "This is question 19",
-        "correctAnswer" : 1,
+        "questionText" : "What is a pseudo-class?",
+        "correctAnswer" : 3,
         "answerList" : [
-            "q19 answer 1",
-            "q19 answer 2",
-            "q19 answer 3",
-            "q19 answer 4"
+            "A CSS rule that contains no declarations",
+            "A CSS declaration that hides the element",
+            "An element that has more than one class",
+            "A CSS keyword to target an element's state"
         ]
     },
     {
-        "questionText" : "This is question 20",
+        "questionText" : "What is an example of a pseudo-element?",
+        "correctAnswer" : 3,
+        "answerList" : [
+            "::before",
+            "::after",
+            "::first-letter",
+            "All of the above"
+        ]
+    },
+    {
+        "questionText" : "What does the z-index property do?",
         "correctAnswer" : 1,
         "answerList" : [
-            "q20 answer 1",
-            "q20 answer 2",
-            "q20 answer 3",
-            "q20 answer 4"
+            "Removes an element from the DOM",
+            "Changes the stacking order of elements",
+            "Changes the opacity of an element",
+            "Forces an element to be positioned relatively"
+        ]
+    },
+    {
+        "questionText" : "What does event.preventDefault() do?",
+        "correctAnswer" : 0,
+        "answerList" : [
+            "It stops the browser from reloading the page upon a form submission",
+            "It stops the browser from allowing the form submission event to occur"
+        ]
+    },
+    {
+        "questionText" : "The browser event submit allows us to do the following:",
+        "correctAnswer" : 2,
+        "answerList" : [
+            "Submit a form using a button",
+            "Submit a form using the Enter key",
+            "Submit a form using both a button and the Enter key"
+        ]
+    },
+    {
+        "questionText" : "In the DOM’s event object, what does its target property refer to?",
+        "correctAnswer" : 0,
+        "answerList" : [
+            "It refers to the HTML element that was interacted with to dispatch the event",
+            "It refers to the HTML element we want to affect as a result of our dispatched event"
+        ]
+    },
+    {
+        "questionText" : "How do we use JavaScript to get the information entered into a form’s input field?",
+        "correctAnswer" : 0,
+        "answerList" : [
+            "We can select the form’s input element and use the value property to read its data",
+            "We can select the form itself and use the value property to read all of its data.",
+            "We can select the form’s input element and use the textContent or innerHTML properties to read its data"
         ]
     }
 ];
 
+
+// starting point, also clears HTML for quiz restart
 function offerQuiz () {
     feedback.innerHTML = "";
     buttonArea.innerHTML = "";
@@ -228,14 +269,17 @@ function offerQuiz () {
     button.addEventListener("click", quizMain);
 };
 
+// starts timer, resets variables for quiz restart
 function quizMain () {
     timer = 180;
+    score = 0;
+    counter = 0;
     timerDisplay.innerText = timer;
     myVar = setInterval(decrementTimer, 1000, 1);
     questionPrep();
-
 };
 
+// checks to see if there are more questions
 function questionPrep() {
     counter++;
     if (counter < question.length) {
@@ -246,8 +290,8 @@ function questionPrep() {
     };
 };
 
+// displays question and places eventListener on each button
 function renderQuestion () {
-
     heading.innerText = "Question " + counter;
     content.innerText = question[counter].questionText;
     for (var j=0; j<question[counter].answerList.length; j++) {
@@ -260,7 +304,8 @@ function renderQuestion () {
         });
     };
 };
-    
+
+// add to score or decrement timer 
 function checkAnswer(response) {
     if (response == question[counter].correctAnswer){
         feedback.innerText = "Correct";
@@ -272,6 +317,7 @@ function checkAnswer(response) {
     questionPrep();
 }
 
+// allow user to enter initials and save to local storage
 function endQuiz () {
     clearInterval (myVar);
     timerDisplay.innerHTML = "";
@@ -296,12 +342,16 @@ function endQuiz () {
         scoreEntry.innerHTML = newArray[i][0] + " " + newArray[i][1];
         scoreList.appendChild(scoreEntry); 
     }
+    
+    // offer chance to restart quiz
     content.innerText = "Do you want to try again?"
     var startButton = document.createElement("button");
     startButton.textContent = "Restart";
     buttonArea.appendChild(startButton);
     startButton.addEventListener("click", offerQuiz);
     var clearButton = document.createElement("button");
+    
+    //allow user to clear localStorage
     clearButton.textContent = "Clear Scores";
     buttonArea.appendChild(clearButton);
     clearButton.addEventListener("click", clearScores);
