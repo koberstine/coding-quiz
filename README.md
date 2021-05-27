@@ -10,7 +10,7 @@ JavaScript, Web API
 https://koberstine.github.io/coding-quiz/
 
 ## Screenshot
-https://github.com/koberstine/coding-quiz/blob/main/screenshot.jpg
+![](https://github.com/koberstine/coding-quiz/blob/main/screenshot.jpg)
 
 ## Contribution
 All questions/answers sourced from University of Central Florida Coding Bootcamp course material
