@@ -5,8 +5,9 @@ var buttonArea = document.getElementById("buttonArea");
 var feedback = document.getElementById("feedback");
 var timerDisplay = document.getElementById("timerDisplay");
 var counter = 0;
-var timer = 180;
+var timer = 0;
 var score = 0;
+var myVar = 0;
 var question = [ 
     {
         "questionText" : "This question intentionally left blank",
@@ -216,6 +217,9 @@ var question = [
 ];
 
 function offerQuiz () {
+    feedback.innerHTML = "";
+    buttonArea.innerHTML = "";
+    timerDisplay.innerHTML = "";
     heading.innerText = "Coding Quiz Challenge";
     content.innerText = "Try to answer the following code related questions within the time limit. Answer carefully because incorrect answers will decrease your remaining time by 10 seconds.";
     var button = document.createElement("button");
@@ -225,8 +229,9 @@ function offerQuiz () {
 };
 
 function quizMain () {
+    timer = 180;
     timerDisplay.innerText = timer;
-    setInterval(decrementTimer, 1000, 1);
+    myVar = setInterval(decrementTimer, 1000, 1);
     questionPrep();
 
 };
@@ -268,22 +273,38 @@ function checkAnswer(response) {
 }
 
 function endQuiz () {
-    clearInterval ();
+    clearInterval (myVar);
     timerDisplay.innerHTML = "";
     buttonArea.innerHTML = "";
     feedback.innerHTML = "";
     heading.innerText = "Your score: " + score;
     content.innerHTML = "";
     var initials = prompt ("Enter your initials");
-//  if (localStorage.getItem('scoreArray')) {
-//      var scoreArray = JSON.parse(window.localStorage.getItem('array name'));
-//      var tempArray = [[initials, score]];
-//      var newArray = scoreArray.concat(tempArray);
-//  } else {
-//      var newArray = [[initials, score]];
-//  }
-//  localStorage.setItem('scoreArray', JSON.stringify(newArray));
-// 
+    if (!initials || initials == "") {initials = " ";}; 
+    if (localStorage.getItem('scoreArray')) {
+        var scoreArray = JSON.parse(window.localStorage.getItem('scoreArray'));
+        var tempArray = [[score, initials]];
+        var newArray = scoreArray.concat(tempArray);
+    } else {
+        var newArray = [[score, initials]];
+    }
+    localStorage.setItem('scoreArray', JSON.stringify(newArray));
+    var scoreList = document.createElement("ul")
+    feedback.appendChild(scoreList);
+    for (var i=0; i<newArray.length; i++){
+        var scoreEntry = document.createElement("li")
+        scoreEntry.innerHTML = newArray[i][0] + " " + newArray[i][1];
+        scoreList.appendChild(scoreEntry); 
+    }
+    content.innerText = "Do you want to try again?"
+    var startButton = document.createElement("button");
+    startButton.textContent = "Restart";
+    buttonArea.appendChild(startButton);
+    startButton.addEventListener("click", offerQuiz);
+    var clearButton = document.createElement("button");
+    clearButton.textContent = "Clear Scores";
+    buttonArea.appendChild(clearButton);
+    clearButton.addEventListener("click", clearScores);
 }
 
 function decrementTimer (amount) {
@@ -296,6 +317,11 @@ function decrementTimer (amount) {
         timerDisplay.innerText = timer;
         return;
     }
+}
+
+function clearScores () {
+    localStorage.clear();
+    feedback.innerHTML = "";
 }
 
 offerQuiz ();
